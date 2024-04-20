@@ -9,7 +9,7 @@ var app = builder.Build();
 
 builder.Services.AddDbContext<usuariosContext>(options =>
 		options.UseSqlServer(
-				builder.Configuration.GetConnectionString("pruebaDbConnection"))); // Hola
+				builder.Configuration.GetConnectionString("usuariosDbConnection"))); // Hola
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
