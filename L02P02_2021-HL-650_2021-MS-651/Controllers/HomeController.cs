@@ -1,27 +1,59 @@
 using L02P02_2021_HL_650_2021_MS_651.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 namespace L02P02_2021_HL_650_2021_MS_651.Controllers
 {
     public class HomeController : Controller
+
+
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+		private readonly usuariosContext _usuariosContext;
+		public HomeController(usuariosContext usuariosContext)
+		{
+			_usuariosContext = usuariosContext;
+		}
 
-        public IActionResult CrearUsuario()
+
+		public IActionResult Index()
+		{
+			var listaDeDepartamentos = (from d in _usuariosContext.departamentos
+										select d).ToList();
+			ViewData["listadoDeDepartamentos"] = new SelectList(listaDeDepartamentos, "id", "departamento");
+
+			var listaDePuestos = (from p in _usuariosContext.puestos
+								  select p).ToList();
+			ViewData["listadoDePuestos"] = new SelectList(listaDeDepartamentos, "id", "puesto");
+
+			var listadoDeClientes = (from c in _usuariosContext.clientes
+									 join d in _usuariosContext.departamentos on c.id equals d.id
+									 join p in _usuariosContext.puestos on c.id equals p.id
+									 select new
+									 {
+										 nombre = c.nombre + " " + c.apellido,
+										 email = c.email,
+										 departamento = d.departamento,
+										 genero = c.genero,
+										 puesto = p.puesto,
+
+									 }
+									).ToList();
+			ViewData["listadoDeClientes"] = listadoDeClientes;
+
+			return View();
+		}
+
+
+		public IActionResult CrearUsuario(clientes nuevoCliente)
         {
-            return View();
-        }
+			_usuariosContext.Add(nuevoCliente);
+			_usuariosContext.SaveChanges();
+
+			return RedirectToAction("CrearUsuario");
+		}
 
         public IActionResult Privacy()
         {
