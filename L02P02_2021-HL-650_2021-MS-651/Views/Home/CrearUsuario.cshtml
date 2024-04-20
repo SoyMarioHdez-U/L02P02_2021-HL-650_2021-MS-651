@@ -65,31 +65,6 @@
                 @*Fin del Formulario*@
             </form>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Dirrecion</th>
-                        <th>Departamento</th>
-                        <th>Genero</th>
-                        <th>Puesto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var equipo in (IEnumerable<dynamic>)ViewData["listadoDeClientes"])
-                    {
-                        <tr>
-                            <td>@equipo.nombre</td>
-                            <td>@equipo.descripcion</td>
-                            <td>@equipo.marca_nombre</td>
-                            <td>@equipo.nombre</td>
-                            <td>@equipo.descripcion</td>
-                            <td>@equipo.marca_nombre</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
 
         </div>
         <div class="agregarFoto">
@@ -116,6 +91,7 @@
                             <tr>
                                 <td>@clientes.nombre</td>
                                 <td>@clientes.email</td>
+                                <td>@clientes.direccion</td>
                                 <td>@clientes.departamento</td>
                                 <td>@clientes.genero</td>
                                 <td>@clientes.puesto</td>
