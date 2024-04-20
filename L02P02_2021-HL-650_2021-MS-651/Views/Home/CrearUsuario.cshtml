@@ -12,9 +12,9 @@
         <p style="color: white; align-content: center;">Ingrese los datos solicitados</p>
     </div>
     <div class="ingresoDatos">
-        <div ="form">
+        <div class="form" style="float: left; width: 50%;">
 
-            <form asp-action="CrearUsuario">
+            <form asp-action="CrearCliente">
                 @*Inicio del Formulario*@
                 <div class="formulario ancho-80">
                     <div class="row">
@@ -42,14 +42,14 @@
                         <div class="col-xs-12">
                             <div class="form-group mb-4">
                                 @Html.Label("lblDepartamento", "Departamento:")
-                                @Html.DropDownList("Id", ViewData["listaDeDepartamentos"] as SelectList, "Seleccione un estado", new { @class = "form-control" })
+                                @Html.DropDownList("id", ViewData["listaDeDepartamentos"] as SelectList, "Seleccione un departamento", new { @class = "form-control" })
 
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group mb-4">
                                 @Html.Label("lblPuesto", "Puesto:")
-                                @Html.DropDownList("Id", ViewData["listaDePuestos"] as SelectList, "Seleccione una categoría", new { @class = "form-control" })
+                                @Html.DropDownList("id", ViewData["listaDePuestos"] as SelectList, "Seleccione un puesto", new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
@@ -67,11 +67,25 @@
 
 
         </div>
-        <div class="agregarFoto">
+        
+        <div class="SubirLaImagen" style="float: left; width: 50%;">
+            <form asp-action="SubirArchivo" method="post" enctype="multipart/form-data">
+                <div class="form-group" style="text-align: center;">
+                    <img src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="Descripción de la imagen" style="width: 200px;">
+                    <input type="file" class="form-control" id="archivo" name="archivo" />
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Seleccionar archivo</button>
+            </form>
         </div>
+        
+
+    </div>
+
+    <div class="tablita">
         <div class="table">
             <div class="tablas">
-                <!-- Aquí puedes añadir las tablas u otro contenido relacionado -->
+
 
                 <table class="table table-striped">
                     <thead>

@@ -8,7 +8,6 @@ namespace L02P02_2021_HL_650_2021_MS_651.Models
         public string? nombre { get; set; }
         public string? apellido { get; set; }
         public string? email { get; set; }
-        public string? url_imagen {  get; set; }
         public string? direccion { get; set; }
         public string? genero { get; set; }
         public int? id_departamento { get; set; }
