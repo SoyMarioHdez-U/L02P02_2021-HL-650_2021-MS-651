@@ -4,7 +4,12 @@
 @{
 }
 <div class="container">
-    <div class="header">
+    <div class="header" style="background-color: midnightblue">
+        <div class="imagen">
+            <a class="imagen"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/UNICAES_Logo.png" height="60px" width="60px" style="float: left; margin-right: 10px;" /></a>
+        </div>
+        <h3 style ="color: white; align-content: center;">Creación de usuarios</h3>
+        <p style="color: white; align-content: center;">Ingrese los datos solicitados</p>
     </div>
     <div class="ingresoDatos">
         <div ="form">
@@ -27,8 +32,8 @@
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group mb-4">
-                                @Html.Label("lblDescripcion", "Descripción:")
-                                @Html.TextArea("descripcion", "", new { @class = "form-control", @placeHolder = "Ingrese la descripción" })
+                                @Html.Label("lblDescripcion", "Dirección:")
+                                @Html.TextArea("direccion", "", new { @class = "form-control", @placeHolder = "Ingrese la dirección" })
                             </div>
                         </div>
                     </div>
@@ -36,30 +41,15 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group mb-4">
-                                @Html.Label("lblPrecio", "Precio:")
-                                @Html.TextArea("precio", "", new { @class = "form-control", @placeHolder = "$" })
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="form-group mb-4">
-                                @Html.Label("lblImagen", "Imagen:")
-                                @Html.TextArea("imagen", "", new { @class = "form-control", @placeHolder = "URL" })
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group mb-4">
-                                @Html.Label("lblEstado", "Estado:")
-                                @Html.DropDownList("id_estado", ViewData["listadoDeEstados"] as SelectList, "Seleccione un estado", new { @class = "form-control" })
+                                @Html.Label("lblDepartamento", "Departamento:")
+                                @* @Html.DropDownList("id_departamento", ViewData["listaDeDepartamentos"] as SelectList, "Seleccione un estado", new { @class = "form-control" }) *@
 
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group mb-4">
-                                @Html.Label("lblCategoria", "Categoría:")
-                                @Html.DropDownList("id_categoria", ViewData["listadoDeCategorias"] as SelectList, "Seleccione una categoría", new { @class = "form-control" })
+                                @Html.Label("lblPuesto", "Puesto:")
+                                @* @Html.DropDownList("id_puesto", ViewData["listaDePuestos"] as SelectList, "Seleccione una categoría", new { @class = "form-control" }) *@
                             </div>
                         </div>
                     </div>
