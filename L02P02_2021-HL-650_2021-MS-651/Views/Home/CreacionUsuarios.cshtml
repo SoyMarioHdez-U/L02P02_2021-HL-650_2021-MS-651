@@ -3,3 +3,87 @@
 *@
 @{
 }
+
+<div class="container">
+    <div class="header">
+
+    </div>
+    <div class="ingresoDatos">
+        <div="form">
+            
+            <form asp-action="CrearUsuario">
+                @*Inicio del Formulario*@
+                <div class="formulario ancho-80">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div c lass="form-group mb-4">
+                                <label>Nombre:</label>
+                                @Html.TextBox("nombre", "", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div c lass="form-group mb-4">
+                                <label>Apellido:</label>
+                                @Html.TextBox("apellido", "", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group mb-4">
+                                @Html.Label("lblDescripcion", "Descripción:")
+                                @Html.TextArea("descripcion", "", new { @class = "form-control", @placeHolder = "Ingrese la descripción" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group mb-4">
+                                @Html.Label("lblPrecio", "Precio:")
+                                @Html.TextArea("precio", "", new { @class = "form-control", @placeHolder = "$" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group mb-4">
+                                @Html.Label("lblImagen", "Imagen:")
+                                @Html.TextArea("imagen", "", new { @class = "form-control", @placeHolder = "URL" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group mb-4">
+                                @Html.Label("lblEstado", "Estado:")
+                                @Html.DropDownList("id_estado", ViewData["listadoDeEstados"] as SelectList, "Seleccione un estado", new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group mb-4">
+                                @Html.Label("lblCategoria", "Categoría:")
+                                @Html.DropDownList("id_categoria", ViewData["listadoDeCategorias"] as SelectList, "Seleccione una categoría", new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group mb-4">
+                                <input type="submit" class="btn btn-primary" value="Guardar" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*Fin del Formulario*@
+            </form>
+
+        </div>
+        <div class="agregarFoto">
+
+        </div>
+        <div class="table">
+
+        </div>
+    </div>
+
+</div>

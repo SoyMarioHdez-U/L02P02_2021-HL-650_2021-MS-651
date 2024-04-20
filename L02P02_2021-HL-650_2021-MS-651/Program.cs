@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using L02P02_2021_HL_650_2021_MS_651.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
